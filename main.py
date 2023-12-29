@@ -102,6 +102,7 @@ def run_gui():
     # Create the main window
     root = tk.Tk()
     root.title('Lab Data Merger')
+    root.iconphoto(False, tk.PhotoImage(file="./static/icons/plant.ico"))
 
     # Set the size and the color of the window
     root.geometry('400x475')
