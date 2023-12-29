@@ -1,10 +1,5 @@
-import os
-import os.path
 import pandas as pd
 import re
-import re
-import os.path
-import shutil
 
 def determine_id(row):
     if row['group']:
@@ -90,10 +85,6 @@ def files_to_id(asv_path, texonomy_path, rep_path, seq, output_dir):
     merged_df2['id'] = merged_df2.apply(determine_id, axis=1)
 
 
-
-
-
-
     aggregation_functions = {
         'feature_id': list,
         'consensus': 'first',
@@ -125,6 +116,5 @@ def files_to_id(asv_path, texonomy_path, rep_path, seq, output_dir):
     # save files
     filename = asv_path.split('/')[-1]
 
-    # TODO: change names of the directories
     merged_df3.to_csv(f"{output_dir}/kibana/{seq}/{filename}")
     merged_df1.to_csv(f"{output_dir}/lab/{seq}/{filename}")

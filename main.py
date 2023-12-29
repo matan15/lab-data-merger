@@ -35,9 +35,20 @@ def perform_actions():
 
     if not os.path.exists(f"{selected_save_dir}/lab"):
         os.makedirs(f"{selected_save_dir}/lab")
+    else:
+        showerror("Folders exist", "The folders lab or kibana are exists in the destination folder, please move them or delete them")
+        submit_button.config(state=tk.NORMAL)
+        dir_select_button.config(state=tk.NORMAL)
+        save_dir_button.config(state=tk.NORMAL)
 
     if not os.path.exists(f"{selected_save_dir}/kibana"):
         os.makedirs(f"{selected_save_dir}/kibana")
+    else:
+        showerror("Folders exist", "The folders lab or kibana are exists in the destination folder, please move them or delete them")
+        submit_button.config(state=tk.NORMAL)
+        dir_select_button.config(state=tk.NORMAL)
+        save_dir_button.config(state=tk.NORMAL)
+
 
     progress_counter = 0
     total_files = 0
@@ -64,7 +75,7 @@ def perform_actions():
                 percentage_label.config(text=(('%.2f ' % progress) + '%'))
 
             except FileNotFoundError as e:
-                percentage_label.config(text="0%")
+                percentage_label.config(text="0 %")
                 showerror("Error", "An error has occurred. File Not Found.")
                 raise FileNotFoundError(e)
 
